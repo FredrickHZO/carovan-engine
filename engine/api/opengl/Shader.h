@@ -19,7 +19,7 @@ namespace Carovan
 
         void Bind() const;
         void Unbind() const;
-        void SetUniform4f(const std::string& name, const Vector<float>& vec);
+        void SetUniform4f(const std::string& name, const Vector4<float>& vec);
         int GetUniformLocation(const std::string& uniformName);
 
     private:

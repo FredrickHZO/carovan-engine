@@ -99,7 +99,7 @@ namespace Carovan
         GL_FUNCTION(glUseProgram(0));
     }
 
-    void Shader::SetUniform4f(const std::string& name, const Vector<float>& vec)
+    void Shader::SetUniform4f(const std::string& name, const Vector4<float>& vec)
     {
         const auto location = GetUniformLocation(name);
         GL_FUNCTION(glUniform4f(location, vec.x, vec.y, vec.z, vec.w));

@@ -81,7 +81,7 @@ namespace Carovan
 
         Shader shader(VERT_SHADER_PATH, FRAG_SHADER_PATH);
         shader.Bind();
-        shader.SetUniform4f("u_Color", Vector<float>{ 1.0f, 0.8f, 0.4, 1.0f });
+        shader.SetUniform4f("u_Color", Vector4<float>{ 1.0f, 0.8f, 0.4, 1.0f });
         //int location = shader.GetUniformLocation("u_Color");
 
         return shader;
