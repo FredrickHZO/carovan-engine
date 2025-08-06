@@ -65,18 +65,18 @@ namespace Carovan
     };
 
     template <typename T>
-    struct Vector
+    struct Vector4
     {
         T x;
         T y;
         T z;
         T w;
 
-        Vector() = default;
-        explicit Vector(T v): x(v), y(v), z(v), w(v) {}
-        Vector(T v1, T v2, T v3, T v4): x(v1), y(v2), z(v3), w(v4) {}
+        Vector4() = default;
+        explicit Vector4(T v): x(v), y(v), z(v), w(v) {}
+        Vector4(T v1, T v2, T v3, T v4): x(v1), y(v2), z(v3), w(v4) {}
 
-        Vector<T>& operator=(const glm::vec4& v)
+        Vector4<T>& operator=(const glm::vec4& v)
         {
             this->x = v.x;
             this->y = v.y;
@@ -85,7 +85,7 @@ namespace Carovan
             return *this;
         }
 
-        Vector<T>& operator=(const Vector<T>& v)
+        Vector4<T>& operator=(const Vector4<T>& v)
         {
             this->x = v.x;
             this->y = v.y;
