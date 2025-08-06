@@ -29,29 +29,29 @@ namespace Carovan
         void Push(unsigned int count) {}
 
         [[nodiscard]]
-        inline unsigned int GetStride() const { return m_Stride; }
+        inline unsigned int GetStride() const { return this->m_Stride; }
         [[nodiscard]]
-        inline std::vector<VertexBufferElement> GetElements() const { return m_Elements; }
+        inline std::vector<VertexBufferElement> GetElements() const { return this->m_Elements; }
     };
 
     template<>
     inline void VertexBufferLayout::Push<float>(const unsigned int count)
     {
-        m_Elements.push_back(VertexBufferElement{ GL_FLOAT, count, GL_FALSE });
-        m_Stride += count * VertexBufferElement::GetTypeSize(GL_FLOAT);
+        this->m_Elements.push_back(VertexBufferElement{ GL_FLOAT, count, GL_FALSE });
+        this->m_Stride += count * VertexBufferElement::GetTypeSize(GL_FLOAT);
     }
 
     template<>
     inline void VertexBufferLayout::Push<unsigned int>(const unsigned int count)
     {
-        m_Elements.push_back(VertexBufferElement{ GL_UNSIGNED_INT, count, GL_FALSE });
-        m_Stride += count * VertexBufferElement::GetTypeSize(GL_UNSIGNED_INT);
+        this->m_Elements.push_back(VertexBufferElement{ GL_UNSIGNED_INT, count, GL_FALSE });
+        this->m_Stride += count * VertexBufferElement::GetTypeSize(GL_UNSIGNED_INT);
     }
 
     template<>
     inline void VertexBufferLayout::Push<unsigned char>(const unsigned int count)
     {
-        m_Elements.push_back(VertexBufferElement{ GL_UNSIGNED_BYTE, count, GL_TRUE });
-        m_Stride += count * VertexBufferElement::GetTypeSize(GL_UNSIGNED_BYTE);
+        this->m_Elements.push_back(VertexBufferElement{ GL_UNSIGNED_BYTE, count, GL_TRUE });
+        this->m_Stride += count * VertexBufferElement::GetTypeSize(GL_UNSIGNED_BYTE);
     }
 };

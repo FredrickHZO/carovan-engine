@@ -1,7 +1,7 @@
-#include "ImGuiHelper.h"
-
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+
+#include "ImGuiHelper.h"
 
 namespace Carovan
 {
@@ -33,18 +33,18 @@ namespace Carovan
     {
         ImGui::Begin("Carovan");
         ImGui::Text("Engine Debugger");
-        ImGui::SliderFloat("float", &m_DemoSliderValue, 0.0f, 1.0f);
-        ImGui::ColorEdit4("clear color", (float*)&m_ClearColor);
+        ImGui::SliderFloat("float", &this->m_DemoSliderValue, 0.0f, 1.0f);
+        ImGui::ColorEdit4("clear color", (float*)&this->m_ClearColor);
         if (ImGui::Button("Button"))
         {
-            m_DemoCounter++;
+            this->m_DemoCounter++;
         }
         ImGui::SameLine();
-        ImGui::Text("counter = %d", m_DemoCounter);
+        ImGui::Text("counter = %d", this->m_DemoCounter);
 
         ImGui::NewLine();
-        ImGui::Checkbox("Show framerate", &m_ShowFramerate);
-        if (m_ShowFramerate)
+        ImGui::Checkbox("Show framerate", &this->m_ShowFramerate);
+        if (this->m_ShowFramerate)
         {
             ImGui::Text("Application average %.3f ms/frame (%1.f)",
                     1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);

@@ -9,7 +9,7 @@ namespace Carovan
 
     Entity Scene::CreateEntity(const std::string& name)
     {
-        Entity entity{ m_Registry.create(), &m_Registry };
+        Entity entity{ this->m_Registry.create(), &this->m_Registry };
         entity.AddComponent<TransformComponent>();
         entity.AddComponent<TagComponent>(name);
         LOG_INFO("Entity '{}' created", name);
@@ -29,7 +29,7 @@ namespace Carovan
         // Events listener react to generated events
         // dispatcher.ProcessEvents();
 
-        auto behaviourView = m_Registry.view<BehaviourComponent>();
+        auto behaviourView = this->m_Registry.view<BehaviourComponent>();
         // Get DeltaTime and use it to update
         for (auto& entity : behaviourView)
         {
@@ -43,7 +43,7 @@ namespace Carovan
      */
     void Scene::OnRender()
     {
-        auto group = m_Registry.group<TransformComponent>(entt::get<SpriteComponent>);
+        auto group = this->m_Registry.group<TransformComponent>(entt::get<SpriteComponent>);
         for (auto& entity : group)
         {
             auto& transform = group.get<TransformComponent>(entity);

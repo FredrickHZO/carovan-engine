@@ -19,7 +19,7 @@ namespace Carovan
 
     Shader::~Shader()
     {
-        GL_FUNCTION(glDeleteProgram(m_RendererID));
+        GL_FUNCTION(glDeleteProgram(this->m_RendererID));
     }
 
     std::string Shader::OpenShaderFile(const std::string& filepath)
@@ -91,7 +91,7 @@ namespace Carovan
 
     void Shader::Bind() const
     {
-        GL_FUNCTION(glUseProgram(m_RendererID));
+        GL_FUNCTION(glUseProgram(this->m_RendererID));
     }
 
     void Shader::Unbind() const
@@ -99,7 +99,7 @@ namespace Carovan
         GL_FUNCTION(glUseProgram(0));
     }
 
-    void Shader::SetUniform4f(const std::string& name, const Vector4<float>& vec)
+    void Shader::SetUniform4f(const std::string& name, const Vector<float>& vec)
     {
         const auto location = GetUniformLocation(name);
         GL_FUNCTION(glUniform4f(location, vec.x, vec.y, vec.z, vec.w));

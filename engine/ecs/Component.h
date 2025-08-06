@@ -3,7 +3,7 @@
 #include <string>
 #include <functional>
 
-#include "../math/Vector4.h"
+#include "../math/Vector.h"
 
 namespace Carovan
 {
@@ -25,34 +25,34 @@ namespace Carovan
 
     struct TransformComponent
     {
-        Vector4<float> Transform{ 1.0f };
+        Vector<float> Transform{ 1.0f };
 
         TransformComponent() = default;
-        TransformComponent(const Vector4<float>& transform)
+        TransformComponent(const Vector<float>& transform)
             : Transform(transform) {}
 
         ~TransformComponent() = default;
 
         TransformComponent(const TransformComponent&) = default;
 
-        operator Vector4<float>& () { return Transform; }
-        operator const Vector4<float>& () { return Transform; }
+        operator Vector<float>& () { return Transform; }
+        operator const Vector<float>& () { return Transform; }
     };
 
     struct SpriteComponent
     {
-        Vector4<float> Color{ 1.0f, 1.0f, 1.0f, 1.0f };
+        Vector<float> Color{ 1.0f, 1.0f, 1.0f, 1.0f };
 
         SpriteComponent() = default;
-        SpriteComponent(const Vector4<float>& color)
+        SpriteComponent(const Vector<float>& color)
             : Color(color) {}
 
         ~SpriteComponent() = default;
 
         SpriteComponent(const SpriteComponent&) = default;
 
-        operator Vector4<float>& () { return Color; }
-        operator const Vector4<float>& () const { return Color; }
+        operator Vector<float>& () { return Color; }
+        operator const Vector<float>& () const { return Color; }
     };
 
     struct TagComponent

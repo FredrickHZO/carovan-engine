@@ -7,12 +7,12 @@ namespace Carovan
 {
     VertexArray::VertexArray()
     {
-        GL_FUNCTION(glGenVertexArrays(1, &m_RendererID));
+        GL_FUNCTION(glGenVertexArrays(1, &this->m_RendererID));
     }
 
     VertexArray::~VertexArray()
     {
-        GL_FUNCTION(glDeleteVertexArrays(1, &m_RendererID));
+        GL_FUNCTION(glDeleteVertexArrays(1, &this->m_RendererID));
     }
 
     VertexArray::VertexArray(VertexArray&& other) noexcept
@@ -25,13 +25,12 @@ namespace Carovan
     {
         if (this != &other)
         {
-            GL_FUNCTION(glDeleteVertexArrays(1, &m_RendererID));
-            m_RendererID = other.m_RendererID;
+            GL_FUNCTION(glDeleteVertexArrays(1, &this->m_RendererID));
+            this->m_RendererID = other.m_RendererID;
             other.m_RendererID = 0;
         }
         return *this;
     }
-
 
     void VertexArray::AddBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout) const
     {
@@ -52,7 +51,7 @@ namespace Carovan
 
     void VertexArray::Bind() const
     {
-        GL_FUNCTION(glBindVertexArray(m_RendererID));
+        GL_FUNCTION(glBindVertexArray(this->m_RendererID));
     }
 
     void VertexArray::Unbind() const

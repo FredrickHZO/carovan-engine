@@ -2,15 +2,15 @@
 
 #include <string>
 #include <unordered_map>
-#include "../../math/Vector4.h"
+#include "../../math/Vector.h"
 
 namespace Carovan
 {
     class Shader
     {
     private:
-        unsigned int m_RendererID;
-        std::unordered_map<std::string, int> m_UniformLocationCache;
+        std::unordered_map<std::string, int>  m_UniformLocationCache;
+        unsigned int                          m_RendererID;
 
     public:
         Shader() = delete;
@@ -19,7 +19,7 @@ namespace Carovan
 
         void Bind() const;
         void Unbind() const;
-        void SetUniform4f(const std::string& name, const Vector4<float>& vec);
+        void SetUniform4f(const std::string& name, const Vector<float>& vec);
         int GetUniformLocation(const std::string& uniformName);
 
     private:

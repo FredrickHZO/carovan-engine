@@ -13,5 +13,5 @@ namespace Carovan
         Singleton* operator=(const Singleton*) = delete;
 
         static T* Instance() { static T Instance; return &Instance; }
-    };;
+    };
 };

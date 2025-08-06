@@ -2,8 +2,8 @@
 
 #include "Renderer.h"
 #include "../core/Window.h"
-#include "../api/opengl/Common.h"
 #include "../core/ImGuiHelper.h"
+#include "../api/opengl/Common.h"
 
 namespace Carovan
 {
@@ -28,7 +28,6 @@ namespace Carovan
         ImGuiHelper::Instance()->SceneHierarchy();
         ImGuiHelper::Instance()->RenderImGui();
     }
-
 
     void Renderer::Clear()
     {

@@ -29,14 +29,13 @@ namespace Carovan
         if (this != &other)
         {
             GL_FUNCTION(glDeleteBuffers(1, &m_RendererID));
-            m_RendererID = other.m_RendererID;
-            m_Count = other.m_Count;
+            this->m_RendererID = other.m_RendererID;
+            this->m_Count = other.m_Count;
             other.m_RendererID = 0;
             other.m_Count = 0;
         }
         return *this;
     }
-
 
     IndexBuffer::~IndexBuffer()
     {
